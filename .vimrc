@@ -27,3 +27,7 @@ set tabstop=4 expandtab
 
 " open netrw tabs to the right
 let g:netrw_altv=1
+
+" powershell as default shell
+set shell=powershell.exe
+
