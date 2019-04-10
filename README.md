@@ -1,0 +1,3 @@
+# .vimrc
+
+A simple .vimrc.
