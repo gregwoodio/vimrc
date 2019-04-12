@@ -25,6 +25,9 @@ set hlsearch
 " tabs to spaces
 set tabstop=4 expandtab
 
+" backspace over newlines
+set bs=2
+
 " open netrw tabs to the right
 let g:netrw_altv=1
 
