@@ -57,9 +57,12 @@ autocmd FileType netrw setl bufhidden=delete
 " ctrl+P
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 
+" set leader
+let mapleader = "-"
+
 " mapping for move line up or down
-noremap - ddp
-noremap _ ddkP
+noremap <leader>- ddp
+noremap <leader>_ ddkP
 
 " mapping for ctrl+u to UPPERCASE word while in insert mode
 inoremap <c-u> <esc>hvawUea 
