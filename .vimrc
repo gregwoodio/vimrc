@@ -28,6 +28,9 @@ set tabstop=4 expandtab
 " show matching parentheses
 set showmatch
 
+" backspace over newlines
+set bs=2
+
 " open netrw tabs to the right
 let g:netrw_altv=1
 
