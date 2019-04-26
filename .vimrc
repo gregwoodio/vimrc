@@ -14,7 +14,11 @@ set nu
 set path+=**
 
 " autocomplete vim commands
-set wildmenu
+"set wildmenu
+"set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png
+"set wildignore+=*.pdf,*.psd
+"set wildignore+=*.dll
+"set wildignore+=node_modules/*,bin/*,obj/*
 
 " incremental search
 set is
@@ -29,7 +33,7 @@ set tabstop=4 expandtab
 set showmatch
 
 " open netrw tabs to the right
-let g:netrw_altv=1
+" let g:netrw_altv=1
 
 " powershell as default shell
 set shell=powershell.exe
@@ -62,6 +66,7 @@ filetype plugin on
 
 " ctrl+P
 set runtimepath^=~/.vim/bundle/ctrlp.vim
+let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|git|svn))$'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MAPPINGS
@@ -82,7 +87,6 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 " capital H and L to start and end of lines
 nnoremap H ^
 nnoremap L $
-vnoremap
 nnoremap <Home> <nop>
 nnoremap <End> <nop>
 
