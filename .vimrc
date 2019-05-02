@@ -14,20 +14,21 @@ set nu
 set path+=**
 
 " autocomplete vim commands
-"set wildmenu
-"set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png
-"set wildignore+=*.pdf,*.psd
-"set wildignore+=*.dll
-"set wildignore+=node_modules/*,bin/*,obj/*
+set wildmenu
+set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png
+set wildignore+=*.pdf,*.psd
+set wildignore+=*.dll
+set wildignore+=node_modules/**,bin/**,obj/**,coverage/**,.git/**
 
 " incremental search
 set is
 
 " search highlighting
-set hlsearch
+" set hlsearch
 
 " tabs to spaces
 set tabstop=4 expandtab
+set shiftwidth=4
 
 " show matching parentheses
 set showmatch
@@ -66,16 +67,12 @@ filetype plugin on
 
 " ctrl+P
 set runtimepath^=~/.vim/bundle/ctrlp.vim
-let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|git|svn))$'
+let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist|coverage)|(\.(swp|ico|git|svn))$'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MAPPINGS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let mapleader = "-"
-
-" move line up or down
-noremap <leader>- ddp
-noremap <leader>_ ddkP
 
 " ctrl+u to UPPERCASE word while in insert mode
 inoremap <c-u> <esc>hvawUea 
@@ -90,17 +87,19 @@ nnoremap L $
 nnoremap <Home> <nop>
 nnoremap <End> <nop>
 
-" jk while in insert mode to return to normal mode
+" jk while in insert, visual, command mode to return to normal mode
 inoremap jk <esc>
 inoremap <esc> <nop>
 vnoremap jk <esc>
 vnoremap <esc> <nop>
+cnoremap jk <C-c>
+cnoremap <esc> <nop>
 
 " no more arrow keys in normal and insert mode
-inoremap <Up> <nop>
-inoremap <Down> <nop>
-inoremap <Left> <nop>
-inoremap <Right> <nop>
+" inoremap <Up> <nop>
+" inoremap <Down> <nop>
+" inoremap <Left> <nop>
+" inoremap <Right> <nop>
 nnoremap <Up> <nop>
 nnoremap <Down> <nop>
 nnoremap <Left> <nop>
@@ -113,4 +112,6 @@ iabbrev adn and
 iabbrev taht that
 iabbrev waht what
 iabbrev pacakge package
+iabbrev Pacakge Package
 iabbrev @@ contact@gregwood.io
+iabbrev fucntion function
