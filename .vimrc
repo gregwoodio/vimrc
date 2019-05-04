@@ -18,7 +18,7 @@ set wildmenu
 set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png
 set wildignore+=*.pdf,*.psd
 set wildignore+=*.dll
-set wildignore+=node_modules/**,bin/**,obj/**,coverage/**,.git/**
+set wildignore+=node_modules/**,bin/**,obj/**,coverage/**,.git/**,_dist/**
 
 " incremental search
 set is
@@ -45,31 +45,47 @@ set bs=2
 " indents match the line above
 set autoindent
 
+" reduce update delay for gitgutter
+set updatetime=100
+
 " close netrw buffers rather than hide
 autocmd FileType netrw setl bufhidden=delete
+
+autocmd VimEnter * NERDTree
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " PLUGINS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" enable pathogen
+execute pathogen#infect()
+
 " enable plugins
 filetype plugin on
 
-"" Setup for vim-plug
+" Setup for vim-plug
 "" https://github.com/junegunn/vim-plug/tree/autocmd
-"call plug#begin()
+" call plug#begin()
 "" fugitive, a git wrapper for vim
 "Plug 'https://github.com/tpope/vim-fugitive.git'
 "" omnisharp, c# support in vim
 "Plug 'OmniSharp/omnisharp-vim'
 "" typescript-vim
 "Plug 'https://github.com/leafgarland/typescript-vim.git'
-"call plug#end()
+
+" call plug#end()
 
 " ctrl+P
 set runtimepath^=~/.vim/bundle/ctrlp.vim
-let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist|coverage)|(\.(swp|ico|git|svn))$'
+let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist|_dist|coverage)|(\.(swp|ico|git|svn))$'
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" set runtimepath^=~/.vim/bundle/nerdtree
+" set runtimepath^=~/.vim/bundle/vim-gitgutter
+" set runtimepath^=~/.vim/bundle/typescript-vim
+" set runtimepath^=~/.vim/bundle/vim-cucumber
+" set runtimepath^=~/.vim/bundle/vim-ps1
+" set runtimepath^=~/.vim/bundle/vim-go
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MAPPINGS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let mapleader = "-"
