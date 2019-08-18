@@ -48,10 +48,17 @@ set autoindent
 " reduce update delay for gitgutter
 set updatetime=100
 
+set ruler
+
+" allow jumping to matching html tags with %
+" runtime macros/matchit.vim
+
 " close netrw buffers rather than hide
 autocmd FileType netrw setl bufhidden=delete
 
-autocmd VimEnter * NERDTree
+" open NERDTree on start, but not when invoked by git
+let NERDTreeWinSize = 60
+autocmd VimEnter * if &filetype !=# 'gitcommit' | NERDTree | endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " PLUGINS
@@ -62,28 +69,26 @@ execute pathogen#infect()
 " enable plugins
 filetype plugin on
 
-" Setup for vim-plug
-"" https://github.com/junegunn/vim-plug/tree/autocmd
-" call plug#begin()
-"" fugitive, a git wrapper for vim
-"Plug 'https://github.com/tpope/vim-fugitive.git'
-"" omnisharp, c# support in vim
-"Plug 'OmniSharp/omnisharp-vim'
-"" typescript-vim
-"Plug 'https://github.com/leafgarland/typescript-vim.git'
-
-" call plug#end()
-
 " ctrl+P
-set runtimepath^=~/.vim/bundle/ctrlp.vim
 let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist|_dist|coverage)|(\.(swp|ico|git|svn))$'
 
-" set runtimepath^=~/.vim/bundle/nerdtree
-" set runtimepath^=~/.vim/bundle/vim-gitgutter
-" set runtimepath^=~/.vim/bundle/typescript-vim
-" set runtimepath^=~/.vim/bundle/vim-cucumber
-" set runtimepath^=~/.vim/bundle/vim-ps1
-" set runtimepath^=~/.vim/bundle/vim-go
+" setup ack.vim to use ag for searching instead
+let g:ackprg = 'ag --nogroup --nocolor --column'
+
+" syntastic
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
+"
+" let g:syntastic_javascript_checkers = []
+" let g:tsuquyomi_disable_quickfix = 1
+" let g:syntastic_typescript_checkers = ["tsuquyomi"]
+" let g:syntastic_json_checkers = ["jsonlint"]
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MAPPINGS
@@ -102,13 +107,15 @@ nnoremap H ^
 nnoremap L $
 nnoremap <Home> <nop>
 nnoremap <End> <nop>
+vnoremap H ^
+vnoremap L $
 
-" jk while in insert, visual, command mode to return to normal mode
-inoremap jk <esc>
+" fd while in insert, visual, command mode to return to normal mode
+inoremap fd <esc>
 inoremap <esc> <nop>
-vnoremap jk <esc>
+vnoremap fd <esc>
 vnoremap <esc> <nop>
-cnoremap jk <C-c>
+cnoremap fd <C-c>
 cnoremap <esc> <nop>
 
 " no more arrow keys in normal and insert mode
