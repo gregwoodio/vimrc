@@ -60,6 +60,8 @@ autocmd FileType netrw setl bufhidden=delete
 let NERDTreeWinSize = 60
 autocmd VimEnter * if &filetype !=# 'gitcommit' | NERDTree | endif
 
+autocmd BufRead,BufNewFile *.targets set syntax=xml
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " PLUGINS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
