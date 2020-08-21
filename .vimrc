@@ -37,7 +37,7 @@ set showmatch
 " let g:netrw_altv=1
 
 " powershell as default shell
-set shell=powershell.exe
+" set shell=powershell.exe
 
 " backspace over newlines and tabs
 set bs=2
@@ -54,13 +54,15 @@ set ruler
 " runtime macros/matchit.vim
 
 " close netrw buffers rather than hide
-autocmd FileType netrw setl bufhidden=delete
+" autocmd FileType netrw setl bufhidden=delete
 
 " open NERDTree on start, but not when invoked by git
 let NERDTreeWinSize = 60
-" autocmd VimEnter * if &filetype !=# 'gitcommit' | NERDTree | endif
+autocmd VimEnter * if &filetype !=# 'gitcommit' | NERDTree | endif
 " If current file is a directory open NERDTree
-autocmd VimEnter if isdirectory(@%) | NERDTree | endif
+" autocmd VimEnter if isdirectory(@%) | NERDTree | endif
+
+" autocmd VimEnter * NERDTree
 
 autocmd BufRead,BufNewFile *.targets set syntax=xml
 
@@ -71,13 +73,13 @@ autocmd BufRead,BufNewFile *.targets set syntax=xml
 execute pathogen#infect()
 
 " enable plugins
-filetype plugin on
+" filetype plugin on
 
 " ctrl+P
-let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist|_dist|coverage)|(\.(swp|ico|git|svn))$'
+" let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist|_dist|coverage)|(\.(swp|ico|git|svn))$'
 
 " setup ack.vim to use ag for searching instead
-let g:ackprg = 'ag --nogroup --nocolor --column'
+" let g:ackprg = 'ag --nogroup --nocolor --column'
 
 " syntastic
 " set statusline+=%#warningmsg#
@@ -95,14 +97,14 @@ let g:ackprg = 'ag --nogroup --nocolor --column'
 " let g:syntastic_json_checkers = ["jsonlint"]
 
 " omnisharp-vim
-filetype indent plugin on
-let g:OmniSharp_server_stdio = 1
-let g:OmniSharp_server_path = 'D:\Vim\Omnisharp-Roslyn\omnisharp-win-x64\OmniSharp.exe'
-let g:OmniSharp_selector_ui = 'ctrlp'  
-
+" filetype indent plugin on
+" let g:OmniSharp_server_stdio = 1
+" let g:OmniSharp_server_path = 'D:\Vim\Omnisharp-Roslyn\omnisharp-win-x64\OmniSharp.exe'
+" let g:OmniSharp_selector_ui = 'ctrlp'  
+" 
 " Navigate up and down by method/property/field
-autocmd FileType cs nnoremap <buffer> <C-k> :OmniSharpNavigateUp<CR>
-autocmd FileType cs nnoremap <buffer> <C-j> :OmniSharpNavigateDown<CR>
+" autocmd FileType cs nnoremap <buffer> <C-k> :OmniSharpNavigateUp<CR>
+" autocmd FileType cs nnoremap <buffer> <C-j> :OmniSharpNavigateDown<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MAPPINGS
