@@ -1,0 +1,45 @@
+{
+	"vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": ["H"],
+            "after": ["^"]
+        },
+        {
+            "before": ["L"],
+            "after": ["$"]
+        },
+        {
+            "before": ["<Up>"],
+            "after": ["<nop>"]
+        },
+        {
+            "before": ["<Down>"],
+            "after": ["<nop>"]
+        },
+        {
+            "before": ["<Right>"],
+            "after": ["<nop>"]
+        },
+        {
+            "before": ["<Left>"],
+            "after": ["<nop>"]
+        },
+        {
+            "before": ["<leader>", "'"],
+            "after": ["c", "i", "w", "'", "'", "<esc>", "P" ]
+        }
+    ],
+    "vim.insertModeKeyBindingsNonRecursive": [
+        {
+            "before": ["f", "d"],
+            "after": ["<Esc>"]
+        }
+    ],
+    "vim.visualModeKeyBindingsNonRecursive": [
+        {
+            "before": ["f", "d"],
+            "after": ["<Esc>"]
+        }
+    ],
+    "vim.leader": "-"
+}
