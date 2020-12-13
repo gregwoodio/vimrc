@@ -57,7 +57,7 @@ set ruler
 " autocmd FileType netrw setl bufhidden=delete
 
 " open NERDTree on start, but not when invoked by git
-let NERDTreeWinSize = 60
+let g:NERDTreeWinSize = 30 
 autocmd VimEnter * if &filetype !=# 'gitcommit' | NERDTree | endif
 " If current file is a directory open NERDTree
 " autocmd VimEnter if isdirectory(@%) | NERDTree | endif
