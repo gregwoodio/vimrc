@@ -50,6 +50,7 @@ set updatetime=100
 
 set ruler
 
+
 " allow jumping to matching html tags with %
 " runtime macros/matchit.vim
 
@@ -147,6 +148,22 @@ nnoremap <Right> <nop>
 " wrap word in ' or "
 nnoremap <leader>' ciw''<esc>P
 nnoremap <leader>" ciw""<esc>P
+
+" Ctrl+l clears the screen and also search highlighting
+nnoremap <C-l> :noh<CR><C-l>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ZETTELKASTEN
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" ignore case on searches (/, ts)
+set ignorecase
+
+" generate ctags silently
+nnoremap <leader>tt :silent !ctags -R . <CR>:redraw!<CR>
+
+" search tags using CtrlP
+nnoremap <leader>st :CtrlPTag<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " SPELLCHECK & ABBREVIATIONS
